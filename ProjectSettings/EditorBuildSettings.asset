@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/kakinn.unity
     guid: 24ab513c9d7935c4a90d5b01420306bc
+  - enabled: 1
+    path: Assets/Scenes/Direction.unity
+    guid: 2e0ba180f71082d4582c18e61dc0f321
   m_configObjects: {}
