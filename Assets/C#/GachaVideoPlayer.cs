@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 using UnityEngine.Video;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,14 +12,33 @@ public class GachaVideoPlayer : MonoBehaviour
     public VideoClip specialVideo; // 特別な条件で再生する動画
     public VideoClip[] gachaVideos; // ガチャ結果に対応する動画の配列
     private List<Sprite> gachaResults;
+    public string nextSceneName; // 遷移先のシーン名
     private int currentResultIndex = 0; // 現在のガチャ結果のインデックス
-
 
     void Start()
     {
         gachaResults = GachaResultManager.Instance.gachaResults;
         videoPlayer.loopPointReached += OnVideoFinished;
         PlayInitialVideo();
+    }
+
+    void Update()
+    {
+        // マウスクリック（またはタップ）を検出
+        if (Input.GetMouseButtonDown(0))
+        {
+            SkipToNextVideo();
+        }
+    }
+
+    void SkipToNextVideo()
+    {
+        if (videoPlayer.isPlaying)
+        {
+            videoPlayer.Stop();
+        }
+
+        PlayGachaResultVideo();
     }
 
     void PlayInitialVideo()
@@ -36,8 +56,7 @@ public class GachaVideoPlayer : MonoBehaviour
 
     void OnVideoFinished(VideoPlayer vp)
     {
-        // 13秒後にガチャ結果の動画を再生
-        Invoke("PlayGachaResultVideo", 5f);
+        PlayGachaResultVideo();
     }
 
     void PlayGachaResultVideo()
@@ -50,22 +69,19 @@ public class GachaVideoPlayer : MonoBehaviour
             {
                 videoPlayer.clip = gachaVideos[resultIndex];
                 videoPlayer.Play();
-
-                // 再生時間を設定
-                float delay = (currentResult.name == "17" || currentResult.name == "18") ? 10f : 5f;
-                StartCoroutine(WaitAndPlayNextVideo(delay));
-                Debug.Log(delay);
-                Debug.Log(currentResultIndex);
             }
-
-            currentResultIndex++; // 次の結果のインデックスに進む
+            currentResultIndex++;
+        }
+        else
+        {
+            // 全ての動画が再生された後のシーン遷移
+            SceneManager.LoadScene(nextSceneName);
         }
     }
 
-    IEnumerator WaitAndPlayNextVideo(float delay)
+    public void Please()
     {
-        yield return new WaitForSeconds(delay);
-        PlayGachaResultVideo();
+        SceneManager.LoadScene(nextSceneName);
     }
     
     bool IsSpecialConditionMet(List<Sprite> results)
