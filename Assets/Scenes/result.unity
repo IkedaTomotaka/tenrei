@@ -1888,7 +1888,7 @@ MonoBehaviour:
   confirmationText: {fileID: 468622526}
   yesButton: {fileID: 1186252107}
   noButton: {fileID: 577884213}
-  nextSceneName: result
+  nextSceneName: Direction
   textColor: {r: 1, g: 0.60592616, b: 0.25943398, a: 0}
   delayTime: 1
 --- !u!114 &2090456404
