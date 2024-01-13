@@ -88,7 +88,7 @@ public class GachaVideoPlayer : MonoBehaviour
     {
         // 特別な条件をチェック
         // ここでは、Spriteの名前または別の識別子を使用して17または18であるかを確認します
-        bool containsSpecialSprite = results.Any(sprite => sprite.name == "17" || sprite.name == "18");
+        bool containsSpecialSprite = results.Any(sprite => sprite.name == "17" || sprite.name == "18" || sprite.name == "19" || sprite.name == "20");
 
         // 17または18のSpriteが含まれていて、かつ10%の確率でtrueを返す
         return containsSpecialSprite && Random.value < 0.1f;

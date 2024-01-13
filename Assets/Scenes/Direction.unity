@@ -568,28 +568,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   videoPlayer: {fileID: 1353008437}
-  defaultVideo: {fileID: 32900000, guid: 8dc142b53d5b33d4c8a5a4ca6927b101, type: 3}
-  specialVideo: {fileID: 32900000, guid: bb01d92bed145b44f9b704c6ef667861, type: 3}
+  defaultVideo: {fileID: 32900000, guid: 01289959df35aa743b8b4bb4ec5129ec, type: 3}
+  specialVideo: {fileID: 32900000, guid: 78b34fb78ff758f4ba8be8b88e4a1250, type: 3}
   gachaVideos:
-  - {fileID: 32900000, guid: 15416af10bff442448135e4ff3e50b03, type: 3}
-  - {fileID: 32900000, guid: ad43ec52b9c57d34aaa65590c375ae3d, type: 3}
-  - {fileID: 32900000, guid: 15416af10bff442448135e4ff3e50b03, type: 3}
-  - {fileID: 32900000, guid: fe20dec53168c884c9963d12111404df, type: 3}
-  - {fileID: 32900000, guid: 15416af10bff442448135e4ff3e50b03, type: 3}
-  - {fileID: 32900000, guid: ad43ec52b9c57d34aaa65590c375ae3d, type: 3}
-  - {fileID: 32900000, guid: 15416af10bff442448135e4ff3e50b03, type: 3}
-  - {fileID: 32900000, guid: ad43ec52b9c57d34aaa65590c375ae3d, type: 3}
-  - {fileID: 32900000, guid: 15416af10bff442448135e4ff3e50b03, type: 3}
-  - {fileID: 32900000, guid: ad43ec52b9c57d34aaa65590c375ae3d, type: 3}
-  - {fileID: 32900000, guid: 15416af10bff442448135e4ff3e50b03, type: 3}
-  - {fileID: 32900000, guid: fe20dec53168c884c9963d12111404df, type: 3}
-  - {fileID: 32900000, guid: 15416af10bff442448135e4ff3e50b03, type: 3}
-  - {fileID: 32900000, guid: ad43ec52b9c57d34aaa65590c375ae3d, type: 3}
-  - {fileID: 32900000, guid: 15416af10bff442448135e4ff3e50b03, type: 3}
-  - {fileID: 32900000, guid: ad43ec52b9c57d34aaa65590c375ae3d, type: 3}
-  - {fileID: 32900000, guid: 15416af10bff442448135e4ff3e50b03, type: 3}
-  - {fileID: 32900000, guid: fe20dec53168c884c9963d12111404df, type: 3}
-  - {fileID: 32900000, guid: fe20dec53168c884c9963d12111404df, type: 3}
+  - {fileID: 32900000, guid: 09aa1f29b0527ac4f902b4151b5fe677, type: 3}
+  - {fileID: 32900000, guid: b51bf65c2f061044ca4190b067a884a2, type: 3}
+  - {fileID: 32900000, guid: 89c175dfa6e0cae45b448c8c78ca61b7, type: 3}
+  - {fileID: 32900000, guid: b42ec10149679184bbdc6a89b64c0a71, type: 3}
+  - {fileID: 32900000, guid: a0037e32afe1fde429404add75ff07a6, type: 3}
+  - {fileID: 32900000, guid: d8b95d4c6531dc243a997cbcc70a1a23, type: 3}
+  - {fileID: 32900000, guid: c869a3a5bb6a463498eda94efe052101, type: 3}
+  - {fileID: 32900000, guid: 2b797a999c0da764b82ecc11f9d530c1, type: 3}
+  - {fileID: 32900000, guid: 9f701af8202791541a199d1efbe2a6e5, type: 3}
+  - {fileID: 32900000, guid: 6a2922fea0113c842b5afc7af6d4622f, type: 3}
+  - {fileID: 32900000, guid: 26d2f94e2a61ed74598c9157ba98e9c1, type: 3}
+  - {fileID: 32900000, guid: 9fe9f6f2bc9bed54fb0384676ca09806, type: 3}
+  - {fileID: 32900000, guid: da7b78c91dc23004690c1628a0bd1081, type: 3}
+  - {fileID: 32900000, guid: b6626ee8a3adcfa4c883793790260a1a, type: 3}
+  - {fileID: 32900000, guid: 9206f9f1857399445a85ced401a33ab0, type: 3}
+  - {fileID: 32900000, guid: 2482f9a00121e14428ae2de69d0b8eab, type: 3}
+  - {fileID: 32900000, guid: e20b5e1268f2da4438849587dda44396, type: 3}
+  - {fileID: 32900000, guid: e5a2e7d48b2aec244857589130aec1d0, type: 3}
+  - {fileID: 32900000, guid: 8788b1de33c8dbd4b84f715506d81b5a, type: 3}
+  - {fileID: 32900000, guid: 5f9905bff3c1f9242867073ea2feaae1, type: 3}
   nextSceneName: result
 --- !u!1 &2006779591
 GameObject:

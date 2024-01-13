@@ -12,19 +12,21 @@ public class GachaController : MonoBehaviour
     {
         Type1,
         Type2,
-        Type3
+        Type3,
+        Type4
     }
 
     private GachaType currentGacha;
     //public Image gachaImage; // ガチャ画像
     public Image BackImage;
-    public VideoPlayer BackVideo;
+    public Animator gachaAnimator;
+    //public VideoPlayer BackVideo;
     public float delayTime = 1f;
     //public Sprite[] gachaTypeSprites;//ガチャタイプ毎のスプライト配列
     public Sprite[] gachaTypeBack;
 
     public Sprite[] allSprites; // すべてのスプライト
-    public VideoClip[] gachaTypeVideo;
+    //public VideoClip[] gachaTypeVideo;
 
     private void Awake()
     {
@@ -63,6 +65,9 @@ public class GachaController : MonoBehaviour
                 currentGacha = GachaType.Type3;
                 break;
             case GachaType.Type3:
+                currentGacha = GachaType.Type4;
+                break;
+            case GachaType.Type4:
                 currentGacha = GachaType.Type1;
                 break;
         }
@@ -80,13 +85,16 @@ public class GachaController : MonoBehaviour
         switch (currentGacha)
         {
             case GachaType.Type1:
-                currentGacha = GachaType.Type3;
+                currentGacha = GachaType.Type4;
                 break;
             case GachaType.Type2:
                 currentGacha = GachaType.Type1;
                 break;
             case GachaType.Type3:
                 currentGacha = GachaType.Type2;
+                break;
+            case GachaType.Type4:
+                currentGacha = GachaType.Type3;
                 break;
         }
         UpdateGachaImage(); // ガチャ画像の更新
@@ -110,6 +118,26 @@ public class GachaController : MonoBehaviour
     // ガチャの画像を更新する
     private void UpdateGachaImage()
     {
+        switch (currentGacha)
+        {
+            case GachaType.Type1:
+                gachaAnimator.Play("Suzaku");
+                BackImage.sprite = gachaTypeBack[(int)currentGacha];
+                break;
+            case GachaType.Type2:
+                gachaAnimator.Play("Genbu");
+                BackImage.sprite = gachaTypeBack[(int)currentGacha];
+                break;
+            case GachaType.Type3:
+                gachaAnimator.Play("Byakko");
+                BackImage.sprite = gachaTypeBack[(int)currentGacha];
+                break;
+            case GachaType.Type4:
+                gachaAnimator.Play("Seiryu");
+                BackImage.sprite = gachaTypeBack[(int)currentGacha];
+                break;
+        }
+        /*
         //gachaImage.sprite = gachaTypeSprites[(int)currentGacha];
         BackImage.sprite = gachaTypeBack[(int)currentGacha];
         // 既存の動画があれば停止する
@@ -121,6 +149,7 @@ public class GachaController : MonoBehaviour
         BackVideo.clip = gachaTypeVideo[(int)currentGacha];
         // 動画の再生を開始 
         BackVideo.Play();
+        */
     }
 
     // ガチャの背景画像を取得する
@@ -149,7 +178,13 @@ public class GachaController : MonoBehaviour
                 if (Random.value < 0.8f)
                     randomIndex = Random.Range(0, 14);
                 else
-                    randomIndex = Random.Range(16, 18);
+                    randomIndex = Random.Range(18, 19);
+                break;
+            case GachaType.Type4:
+                if (Random.value < 0.8f)
+                    randomIndex = Random.Range(0, 14);
+                else
+                    randomIndex = Random.Range(19, 20);
                 break;
             default:
                 randomIndex = 0;
