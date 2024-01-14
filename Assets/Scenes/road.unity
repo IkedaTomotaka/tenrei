@@ -167,7 +167,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &401920191
 GameObject:
@@ -311,7 +311,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &646848187
 GameObject:
@@ -408,6 +408,7 @@ GameObject:
   - component: {fileID: 1051518071}
   - component: {fileID: 1051518070}
   - component: {fileID: 1051518072}
+  - component: {fileID: 1051518073}
   m_Layer: 0
   m_Name: road
   m_TagString: Untagged
@@ -476,8 +477,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NextStage: gatya
-  ReturnTitleTime: 11.5
-  ChangeStage: 
+  ReturnTitleTime: 8
+--- !u!114 &1051518073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1051518069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 931ca6c0ae2dcfb4083d04c4233d25a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  videoPlayer: {fileID: 1051518070}
+  videoClips:
+  - {fileID: 32900000, guid: a7c22448657ec184281fc937cf856521, type: 3}
+  - {fileID: 32900000, guid: ec4f1b75aa2dcd945add1e11dbb95cd3, type: 3}
 --- !u!1001 &1072667899
 PrefabInstance:
   m_ObjectHideFlags: 0
