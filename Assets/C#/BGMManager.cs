@@ -7,8 +7,8 @@ public class BGMManager : MonoBehaviour
 {
     public AudioSource audioSource;
     public AudioClip[] bgmClips;
-    public float delayInSeconds = 3.0f; // BGM再生の遅延時間（インスペクターで変更可能）
-    public float fadeTime = 3.0f;
+    //public float delayInSeconds = 3.0f; // BGM再生の遅延時間（インスペクターで変更可能）
+    //public float fadeTime = 3.0f;
 
     public static BGMManager Instance { get; private set; }
 
@@ -36,11 +36,22 @@ public class BGMManager : MonoBehaviour
         // インデックスが0の場合は何もしない
         if (sceneIndex == 0) return;
 
+    // インデックスが5または6の場合、ボリュームを0.5に設定
+    if (sceneIndex == 5 || sceneIndex == 6)
+    {
+        audioSource.volume = 0.3f;
+    }
+    else
+    {
+        audioSource.volume = 1f;
+    }
+
         // インデックスが1または2の場合、すでに再生中でなければBGMを再生（遅延なし）
         if ((sceneIndex == 1 || sceneIndex == 2) && bgmClips.Length > 1 && bgmClips[1] != null)
         {
+            PlayBGMClip(bgmClips[1]);
             
-            if(sceneIndex == 1)
+            /*if(sceneIndex == 1)
             {
                 StartCoroutine(PlayDelayedBGM(bgmClips[1], delayInSeconds));
             }
@@ -48,33 +59,35 @@ public class BGMManager : MonoBehaviour
             {
                 PlayBGMClip(bgmClips[1]);
                 StartCoroutine(FadeOutCoroutine(fadeTime));
-            }
+            }*/
         }
         // インデックスが3または4の場合、同様に処理
         else if ((sceneIndex == 3 || sceneIndex == 4) && bgmClips.Length > 2 && bgmClips[2] != null)
         {
+            PlayBGMClip(bgmClips[2]);
             
-            if(sceneIndex == 3)
+            /*if(sceneIndex == 3)
             {
                 StartCoroutine(PlayDelayedBGM(bgmClips[2], delayInSeconds));
             }
             if(sceneIndex == 4)
             {
                 PlayBGMClip(bgmClips[2]);
-            }
+            }*/
         }
         // インデックスが5または6の場合、同様に処理
         else if ((sceneIndex == 5 || sceneIndex == 6) && bgmClips.Length > 3 && bgmClips[3] != null)
         {
+            PlayBGMClip(bgmClips[3]);
             
-            if(sceneIndex == 5)
+            /*if(sceneIndex == 5)
             {
                 StartCoroutine(PlayDelayedBGM(bgmClips[3], delayInSeconds));
             }
             if(sceneIndex == 6)
             {
                 PlayBGMClip(bgmClips[3]);
-            }
+            }*/
         }
         /*// インデックスが0の場合は何もしない
         if (sceneIndex == 0) return;
@@ -123,7 +136,7 @@ public class BGMManager : MonoBehaviour
         audioSource.Play();
     }
 
-    private IEnumerator FadeOutCoroutine(float fadeTime)
+    /*private IEnumerator FadeOutCoroutine(float fadeTime)
     {
         float startVolume = audioSource.volume;
 
@@ -135,9 +148,9 @@ public class BGMManager : MonoBehaviour
 
         audioSource.Stop();
         audioSource.volume = startVolume; // ボリュームを元に戻す
-    }
+    }*/
 
-    IEnumerator PlayDelayedBGM(AudioClip clip, float delayInSeconds)
+    /*IEnumerator PlayDelayedBGM(AudioClip clip, float delayInSeconds)
     {
         audioSource.clip = clip;
         yield return new WaitForSeconds(delayInSeconds);
@@ -147,5 +160,5 @@ public class BGMManager : MonoBehaviour
     void OnDestroy()
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
-    }
+    }*/
 }

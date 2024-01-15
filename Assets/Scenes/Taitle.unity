@@ -723,7 +723,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 17797fc7d070d30499619c16502c244a, type: 3}
   - {fileID: 8300000, guid: 70741bdcc5dcbd242bb4405fd8aa4634, type: 3}
   - {fileID: 8300000, guid: aaa6022cd74b7d640b71002448acb040, type: 3}
-  delayInSeconds: 1
   fadeTime: 3
 --- !u!1001 &1343391609
 PrefabInstance:
