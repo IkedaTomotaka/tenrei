@@ -435,7 +435,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fa1bd7eba543d24997a2dd41643ce41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NextStage: Taitle
+  NextStage: splash
   delayTime: 0.1
 --- !u!1 &152784276
 GameObject:
