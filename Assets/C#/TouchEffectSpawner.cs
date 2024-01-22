@@ -19,7 +19,7 @@ public class TouchEffectSpawner : MonoBehaviour
     {
         // スクリーン座標をワールド座標に変換
         Vector3 worldPosition = Camera.main.ScreenToWorldPoint(position);
-        worldPosition.z = 0; // エフェクトがカメラに隠れないようにZ座標を調整
+        worldPosition.z = -9; // エフェクトがカメラに隠れないようにZ座標を調整
 
         // エフェクトを生成し、1秒後に破棄
         GameObject effectInstance = Instantiate(effectPrefab, worldPosition, Quaternion.identity);
