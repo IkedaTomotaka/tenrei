@@ -1203,6 +1203,51 @@ RectTransform:
   m_AnchoredPosition: {x: -200, y: -220}
   m_SizeDelta: {x: 369, y: 159}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &838760423
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 838760425}
+  - component: {fileID: 838760424}
+  m_Layer: 0
+  m_Name: TouchEffectSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &838760424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 838760423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61bd86cd4cc714e4ab6588927290edc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effectPrefab: {fileID: 1773442250950858755, guid: a135fffa2bd0e914a8e6b62249e9a683, type: 3}
+--- !u!4 &838760425
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 838760423}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &923101166
 GameObject:
   m_ObjectHideFlags: 0
@@ -2225,8 +2270,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 17797fc7d070d30499619c16502c244a, type: 3}
   - {fileID: 8300000, guid: 70741bdcc5dcbd242bb4405fd8aa4634, type: 3}
   - {fileID: 8300000, guid: aaa6022cd74b7d640b71002448acb040, type: 3}
-  delayInSeconds: 0
-  fadeTime: 0
 --- !u!82 &1586985284
 AudioSource:
   m_ObjectHideFlags: 0
