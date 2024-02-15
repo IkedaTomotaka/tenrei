@@ -11,6 +11,15 @@ public class GachaResultDisplay : MonoBehaviour
     public Image backImage;              // 背景画像
     public float animationDelay = 1f; // アニメーションの遅延時間
     public float initialDelay = 0f; // 初回のアニメーション遅延時間
+    public float activeTime = 1f;
+    public GameObject buttonA;
+    public GameObject buttonB;
+
+    void Awake()
+    {
+        buttonA.SetActive(false);
+        buttonB.SetActive(false);
+    }
 
     void Start()
     {
@@ -21,6 +30,7 @@ public class GachaResultDisplay : MonoBehaviour
             resultContainer10.SetActive(false);
             InstantiateResultWithAnimation(resultPrefab, resultContainer1.transform, GachaResultManager.Instance.gachaResults[0]);
             resultPrefab.GetComponent<Image>().enabled = false; // Imageを非表示にする
+            Invoke("ButtonActive", activeTime);
         }
 
         else
@@ -42,6 +52,14 @@ public class GachaResultDisplay : MonoBehaviour
             InstantiateResultWithAnimation(resultPrefab, resultContainer10.transform, GachaResultManager.Instance.gachaResults[i]);
             resultPrefab.GetComponent<Image>().enabled = false;
         }
+
+        Invoke("ButtonActive", activeTime);
+    }
+
+    void ButtonActive()
+    {
+        buttonA.SetActive(true);
+        buttonB.SetActive(true);
     }
 
     private void InstantiateResultWithAnimation(GameObject prefab, Transform parent, Sprite sprite)

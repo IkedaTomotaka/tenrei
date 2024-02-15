@@ -1157,6 +1157,8 @@ MonoBehaviour:
   backImage: {fileID: 1799319720}
   animationDelay: 0.3
   initialDelay: 0
+  buttonA: {fileID: 2145967644}
+  buttonB: {fileID: 1744633131}
 --- !u!4 &1246741187
 Transform:
   m_ObjectHideFlags: 0

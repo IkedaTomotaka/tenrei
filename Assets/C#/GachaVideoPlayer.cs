@@ -43,12 +43,15 @@ public class GachaVideoPlayer : MonoBehaviour
 
     void PlayInitialVideo()
     {
-        if (IsSpecialConditionMet(gachaResults))
+        // 特定のスプライト名がgachaResultsリストに存在するかどうかをチェック
+        if (gachaResults.Any(sprite => sprite.name == "Item_17" || sprite.name == "Item_18" || sprite.name == "Item_19" || sprite.name == "Item_20"))
         {
+            // 条件を満たす場合、specialVideoを再生
             videoPlayer.clip = specialVideo;
         }
         else
         {
+            // 条件を満たさない場合、defaultVideoを再生
             videoPlayer.clip = defaultVideo;
         }
         videoPlayer.Play();
@@ -84,15 +87,17 @@ public class GachaVideoPlayer : MonoBehaviour
         SceneManager.LoadScene(nextSceneName);
     }
     
-    bool IsSpecialConditionMet(List<Sprite> results)
+    /*bool IsSpecialConditionMet(List<Sprite> results)
     {
-        // 特別な条件をチェック
-        // ここでは、Spriteの名前または別の識別子を使用して17または18であるかを確認します
-        bool containsSpecialSprite = results.Any(sprite => sprite.name == "17" || sprite.name == "18" || sprite.name == "19" || sprite.name == "20");
+        bool containsSpecialSprite = results.Any(sprite => 
+        sprite.name == "17" || 
+        sprite.name == "18" || 
+        sprite.name == "19" || 
+        sprite.name == "20");
 
-        // 対象のSpriteが含まれていて、かつ10%の確率でtrueを返す
-        return containsSpecialSprite && Random.value < 0.1f;
-    }
+    // 対象のSpriteが含まれている場合にtrueを返す
+    return containsSpecialSprite;
+    }*/
 
     int GetGachaResultIndex(List<Sprite> results)
     {

@@ -162,29 +162,69 @@ public class GachaController : MonoBehaviour
     public Sprite UpdateGacha()
     {
         int randomIndex;
+        float randomValue = Random.value;
 
         switch (currentGacha)
         {
             case GachaType.Type1:
-                randomIndex = Random.Range(0, 17);
+                if (randomValue < 0.93f)
+                    randomIndex = Random.Range(0, 16);
+                else if(randomValue < 0.93f + 0.05f)
+                    randomIndex = Random.Range(16, 17);
+                else
+                    randomIndex = Random.Range(17, 20);
             break;
             case GachaType.Type2:
-                if (Random.value < 0.8f)
-                    randomIndex = Random.Range(0, 15);
-                else
-                    randomIndex = Random.Range(17, 18);
+                if (randomValue < 0.93f) // 99.4%の確率で0から15の間のインデックスを選択
+                {
+                    randomIndex = Random.Range(0, 16);
+                }
+                else if (randomValue < 0.93f + 0.05f) // 次の0.5%の確率で17のインデックスを選択
+                {
+                    randomIndex = Random.Range(17, 18); // この範囲は17のみを返します
+                }
+                else // 残りの確率で16、または18から19のインデックスを選択
+                {
+                    // このステップで、16または18/19のインデックスを等確率で選択するための追加のロジック
+                    if (Random.value < 0.3f) // 50%の確率で16のインデックスを選択
+                    {
+                        randomIndex = 16;
+                    }
+                    else // 残りの50%の確率で18から19のインデックスを選択
+                    {
+                        randomIndex = Random.Range(18, 20); // この範囲は18または19を返します
+                    }
+                }
                 break;
             case GachaType.Type3:
-                if (Random.value < 0.8f)
-                    randomIndex = Random.Range(0, 14);
-                else
+                if (randomValue < 0.93f)
+                {
+                    randomIndex = Random.Range(0, 16);
+                }                    
+                else if(randomValue < 0.93f + 0.05f)
+                {
                     randomIndex = Random.Range(18, 19);
+                }
+            else // 残りの0.5%の確率で16、または18から19のインデックスを選択
+            {
+                // このステップで、16または18/19のインデックスを等確率で選択するための追加のロジック
+                if (Random.value < 0.5f) // 50%の確率で16のインデックスを選択
+                {
+                    randomIndex = Random.Range(16, 18);
+                }
+                else // 残りの50%の確率で18から19のインデックスを選択
+                {
+                    randomIndex = Random.Range(19, 20);
+                }
+            }
                 break;
             case GachaType.Type4:
-                if (Random.value < 0.8f)
-                    randomIndex = Random.Range(0, 14);
-                else
+                if (randomValue < 0.93f)
+                    randomIndex = Random.Range(0, 16);
+                else if(randomValue < 0.93f + 0.05f)
                     randomIndex = Random.Range(19, 20);
+                    else
+                    randomIndex = Random.Range(16, 19);
                 break;
             default:
                 randomIndex = 0;

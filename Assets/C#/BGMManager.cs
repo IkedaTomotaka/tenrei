@@ -29,14 +29,12 @@ public class BGMManager : MonoBehaviour
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         PlayBGM(scene.buildIndex);
-    }
+    }private void PlayBGM(int sceneIndex)
+{
+    // インデックスが0の場合は何もしない
+    if (sceneIndex == 0) return;
 
-    private void PlayBGM(int sceneIndex)
-    {
-        // インデックスが0の場合は何もしない
-        if (sceneIndex == 0) return;
-
-    // インデックスが5または6の場合、ボリュームを0.5に設定
+    // インデックスが5または6の場合、ボリュームを0.3に設定
     if (sceneIndex == 5 || sceneIndex == 6)
     {
         audioSource.volume = 0.3f;
@@ -46,119 +44,34 @@ public class BGMManager : MonoBehaviour
         audioSource.volume = 1f;
     }
 
-        // インデックスが1または2の場合、すでに再生中でなければBGMを再生（遅延なし）
-        if ((sceneIndex == 1 || sceneIndex == 2) && bgmClips.Length > 1 && bgmClips[1] != null)
-        {
-            PlayBGMClip(bgmClips[1]);
-            
-            /*if(sceneIndex == 1)
-            {
-                StartCoroutine(PlayDelayedBGM(bgmClips[1], delayInSeconds));
-            }
-            if(sceneIndex == 2)
-            {
-                PlayBGMClip(bgmClips[1]);
-                StartCoroutine(FadeOutCoroutine(fadeTime));
-            }*/
-        }
-        // インデックスが3または4の場合、同様に処理
-        else if ((sceneIndex == 3 || sceneIndex == 4) && bgmClips.Length > 2 && bgmClips[2] != null)
-        {
-            PlayBGMClip(bgmClips[2]);
-            
-            /*if(sceneIndex == 3)
-            {
-                StartCoroutine(PlayDelayedBGM(bgmClips[2], delayInSeconds));
-            }
-            if(sceneIndex == 4)
-            {
-                PlayBGMClip(bgmClips[2]);
-            }*/
-        }
-        // インデックスが5または6の場合、同様に処理
-        else if ((sceneIndex == 5 || sceneIndex == 6) && bgmClips.Length > 3 && bgmClips[3] != null)
-        {
-            PlayBGMClip(bgmClips[3]);
-            
-            /*if(sceneIndex == 5)
-            {
-                StartCoroutine(PlayDelayedBGM(bgmClips[3], delayInSeconds));
-            }
-            if(sceneIndex == 6)
-            {
-                PlayBGMClip(bgmClips[3]);
-            }*/
-        }
-        /*// インデックスが0の場合は何もしない
-        if (sceneIndex == 0) return;
-
-        // インデックスが1の場合、指定された遅延時間後にBGMを再生
-        if (sceneIndex == 1 && bgmClips.Length > 4 && bgmClips[1] != null)
-        {
-            StartCoroutine(PlayDelayedBGM(bgmClips[1], delayInSeconds));
-        }
-        // インデックスが2の場合、BGMをフェードアウト
-        if (sceneIndex == 2 && bgmClips.Length > 4 && bgmClips[1] != null)
-        {
-            //StartCoroutine(PlayDelayedBGM(bgmClips[2], delayInSeconds));
-            StartCoroutine(FadeOutCoroutine(audioSource, fadeTime));
-        }
-        // インデックスが1の場合、指定された遅延時間後にBGMを再生
-        if (sceneIndex == 3 && bgmClips.Length > 4 && bgmClips[2] != null)
-        {
-            StartCoroutine(PlayDelayedBGM(bgmClips[2], delayInSeconds));
-        }
-        // インデックスが1の場合、指定された遅延時間後にBGMを再生
-        if (sceneIndex == 4 && bgmClips.Length > 4 && bgmClips[2] != null)
-        {
-            StartCoroutine(PlayDelayedBGM(bgmClips[2], delayInSeconds));
-        }
-        // インデックスが1の場合、指定された遅延時間後にBGMを再生
-        if (sceneIndex == 5 && bgmClips.Length > 4 && bgmClips[3] != null)
-        {
-            StartCoroutine(PlayDelayedBGM(bgmClips[3], delayInSeconds));
-        }
-        // インデックスが1の場合、指定された遅延時間後にBGMを再生
-        if (sceneIndex == 6 && bgmClips.Length > 4 && bgmClips[3] != null)
-        {
-            StartCoroutine(PlayDelayedBGM(bgmClips[3], delayInSeconds));
-        }*/
-
-        Debug.Log(bgmClips);
+    // インデックスが1または2の場合、BGMを再生
+    if ((sceneIndex == 1 || sceneIndex == 2) && bgmClips.Length > 1 && bgmClips[1] != null)
+    {
+        PlayBGMClip(bgmClips[1], sceneIndex == 5);
     }
-
-    private void PlayBGMClip(AudioClip clip)
+    // インデックスが3または4の場合、BGMを再生
+    else if ((sceneIndex == 3 || sceneIndex == 4) && bgmClips.Length > 2 && bgmClips[2] != null)
     {
-        // 既に同じBGMが再生されている場合は何もしない
-        if (audioSource.clip == clip && audioSource.isPlaying) return;
-
-        audioSource.clip = clip;
-        audioSource.Play();
+        PlayBGMClip(bgmClips[2], sceneIndex == 5);
     }
-
-    /*private IEnumerator FadeOutCoroutine(float fadeTime)
+    // インデックスが5の場合、BGMを再生
+    else if (sceneIndex == 5 && bgmClips.Length > 3 && bgmClips[3] != null)
     {
-        float startVolume = audioSource.volume;
-
-        while (audioSource.volume > 0.0f)
-        {
-            audioSource.volume -= startVolume * Time.deltaTime / fadeTime;
-            yield return null;
-        }
-
-        audioSource.Stop();
-        audioSource.volume = startVolume; // ボリュームを元に戻す
-    }*/
-
-    /*IEnumerator PlayDelayedBGM(AudioClip clip, float delayInSeconds)
-    {
-        audioSource.clip = clip;
-        yield return new WaitForSeconds(delayInSeconds);
-        audioSource.Play();
+        PlayBGMClip(bgmClips[3], true); // インデックス5の場合は常に再生
     }
-
-    void OnDestroy()
+    // インデックスが6の場合、BGMを再生
+    else if (sceneIndex == 6 && bgmClips.Length > 3 && bgmClips[3] != null)
     {
-        SceneManager.sceneLoaded -= OnSceneLoaded;
-    }*/
+        PlayBGMClip(bgmClips[3], sceneIndex == 5);
+    }
+}
+
+private void PlayBGMClip(AudioClip clip, bool forcePlay = false)
+{
+    // インデックスが5ではない場合、既に同じBGMが再生されているなら何もしない
+    if (!forcePlay && audioSource.clip == clip && audioSource.isPlaying) return;
+
+    audioSource.clip = clip;
+    audioSource.Play();
+}
 }
